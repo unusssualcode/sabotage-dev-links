@@ -36,13 +36,14 @@
         flex: 1;
         width: 100%;
         max-width: 500px;
-        margin: auto;
+        margin: 40px auto 20px auto; /* 🔹 сверху 40px, снизу 20px, по центру */
         padding: 20px;
         text-align: center;
         background-color: rgba(0, 0, 0, 0.4);
         border-radius: 12px;
         box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
       }
+
       .avatar {
         width: 120px;
         height: 120px;
@@ -68,18 +69,19 @@
       }
       .link-list {
         display: grid;
-        grid-template-columns: 1fr; /* один кубик на ширину экрана */
+        grid-template-columns: repeat(2, 1fr); /* два квадрата в ряд */
         gap: 16px;
+        margin-top: 16px; /* 🔹 Отступ сверху блока ссылок */
       }
 
       .link-list a {
         display: block;
-        padding: 20px;
+        padding: 16px; /* 🔹 чуть меньше, чем было 20px */
+        font-size: 0.95rem; /* 🔹 немного меньше текста */
         background-color: #0d1a0d;
         border-radius: 12px;
         text-decoration: none;
         color: #cce8cc;
-        font-size: 1rem;
         font-weight: 500;
         border: 1px solid #00ff88;
         box-shadow: 4px 4px 12px rgba(0, 255, 136, 0.3),
@@ -168,12 +170,11 @@
           >Pampy</a
         >
       </div>
-    </div>
-
-    <div style="text-align: center; margin-top: 20px">
-      <a href="https://t.me/Sabotage_dev" target="_blank" class="telegram-btn"
-        >Write Me to Telegram</a
-      >
+      <div style="text-align: center; margin-top: 50px">
+        <a href="https://t.me/Sabotage_dev" target="_blank" class="telegram-btn"
+          >Write Me to Telegram</a
+        >
+      </div>
     </div>
 
     <footer>💻 Frontend • Backend • UI/UX Design</footer>
