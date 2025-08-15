@@ -7,6 +7,10 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap");
 
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         margin: 0;
         padding: 0;
@@ -18,6 +22,8 @@
         display: flex;
         flex-direction: column;
         min-height: 100vh;
+        align-items: center;
+        justify-content: center;
       }
 
       @keyframes gradientMove {
@@ -33,51 +39,54 @@
       }
 
       .container {
-        flex: 1;
-        width: 100%;
-        max-width: 500px;
-        margin: 40px auto 20px auto; /* 🔹 сверху 40px, снизу 20px, по центру */
-        padding: 20px;
+        width: 90%;
+        max-width: 350px;
+        margin: 0 auto;
+        padding: 24px 20px;
         text-align: center;
         background-color: rgba(0, 0, 0, 0.4);
-        border-radius: 12px;
+        border-radius: 16px;
         box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
+        backdrop-filter: blur(10px);
       }
 
       .avatar {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
         border-radius: 50%;
-        margin: 0 auto 16px;
+        margin: 0 auto 20px;
         background-color: #0d1a0d;
         background-size: cover;
         background-position: center;
         border: 2px solid #00ff88;
         box-shadow: 0 0 15px rgba(0, 255, 136, 0.6);
       }
+
       .name {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         font-weight: 600;
         margin-bottom: 8px;
         color: #00ff88;
         text-shadow: 0 0 8px rgba(0, 255, 136, 0.8);
       }
+
       .subtitle {
-        font-size: 1rem;
+        font-size: 0.9rem;
         color: #7fd9a5;
         margin-bottom: 24px;
       }
+
       .link-list {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* два квадрата в ряд */
-        gap: 16px;
-        margin-top: 16px; /* 🔹 Отступ сверху блока ссылок */
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 20px 0;
       }
 
       .link-list a {
         display: block;
-        padding: 16px; /* 🔹 чуть меньше, чем было 20px */
-        font-size: 0.95rem; /* 🔹 немного меньше текста */
+        padding: 14px 16px;
+        font-size: 0.9rem;
         background-color: #0d1a0d;
         border-radius: 12px;
         text-decoration: none;
@@ -91,61 +100,78 @@
       }
 
       .link-list a:hover {
-        transform: translateY(-5px) rotateX(2deg) rotateY(2deg);
-        box-shadow: 8px 8px 20px rgba(0, 255, 136, 0.6),
-          -4px -4px 12px rgba(0, 255, 136, 0.2);
+        transform: translateY(-3px);
+        box-shadow: 6px 6px 16px rgba(0, 255, 136, 0.5),
+          -3px -3px 10px rgba(0, 255, 136, 0.2);
         color: #00ff88;
       }
 
       .telegram-btn {
         display: inline-block;
-        padding: 15px 28px;
-        font-size: 1rem;
+        padding: 14px 24px;
+        font-size: 0.95rem;
         font-weight: 600;
         color: #0d1a0d;
         background: linear-gradient(145deg, #00ff88, #007f44);
         border: 2px solid #00ff88;
         border-radius: 12px;
-        box-shadow: 0 5px 0 #007f44, 0 10px 15px rgba(0, 255, 136, 0.4);
+        box-shadow: 0 4px 0 #007f44, 0 8px 12px rgba(0, 255, 136, 0.4);
         text-decoration: none;
         transition: all 0.3s ease;
-        position: relative;
+        margin-top: 20px;
       }
 
       .telegram-btn:active {
-        transform: translateY(4px);
-        box-shadow: 0 1px 0 #007f44, 0 4px 6px rgba(0, 255, 136, 0.4);
+        transform: translateY(3px);
+        box-shadow: 0 1px 0 #007f44, 0 3px 5px rgba(0, 255, 136, 0.4);
       }
 
       .telegram-btn:hover {
         background: linear-gradient(145deg, #00ffaa, #00cc77);
-        box-shadow: 0 8px 0 #007f44, 0 12px 20px rgba(0, 255, 136, 0.5);
+        box-shadow: 0 6px 0 #007f44, 0 10px 16px rgba(0, 255, 136, 0.5);
       }
 
       footer {
         text-align: center;
-        padding: 12px;
-        font-size: 0.9rem;
+        padding: 16px;
+        margin-top: 20px;
+        font-size: 0.85rem;
         color: #00ff88;
         background: rgba(0, 0, 0, 0.4);
         border-top: 1px solid rgba(0, 255, 136, 0.3);
         text-shadow: 0 0 5px rgba(0, 255, 136, 0.6);
+        width: 100%;
+        backdrop-filter: blur(10px);
       }
-      footer {
-        text-align: center;
-        padding: 12px;
-        margin-top: 20px; /* 🔹 Добавили отступ сверху */
-        font-size: 0.9rem;
-        color: #00ff88;
-        background: rgba(0, 0, 0, 0.4);
-        border-top: 1px solid rgba(0, 255, 136, 0.3);
-        text-shadow: 0 0 5px rgba(0, 255, 136, 0.6);
+
+      @media (max-width: 480px) {
+        .container {
+          width: 95%;
+          padding: 20px 16px;
+        }
+
+        .avatar {
+          width: 90px;
+          height: 90px;
+        }
+
+        .name {
+          font-size: 1.2rem;
+        }
+
+        .subtitle {
+          font-size: 0.85rem;
+        }
+
+        .link-list a {
+          padding: 12px 14px;
+          font-size: 0.85rem;
+        }
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <!-- Вставь URL своего аватара -->
       <div
         class="avatar"
         style="background-image: url('./img/avatar.png')"
@@ -170,11 +196,9 @@
           >Pampy</a
         >
       </div>
-      <div style="text-align: center; margin-top: 50px">
-        <a href="https://t.me/Sabotage_dev" target="_blank" class="telegram-btn"
-          >Write Me to Telegram</a
-        >
-      </div>
+      <a href="https://t.me/Sabotage_dev" target="_blank" class="telegram-btn"
+        >Write Me to Telegram</a
+      >
     </div>
 
     <footer>💻 Frontend • Backend • UI/UX Design</footer>
