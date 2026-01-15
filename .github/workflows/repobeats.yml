@@ -1,0 +1,16 @@
+name: Repobeats Analytics
+on:
+  schedule:
+    # Запуск каждый день в 00:00
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  repobeats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: rseng/repobeats@latest
+        with:
+          USERNAME: твоё_имя_пользователя
+          # Можно настроить цвета, но стандартные уже похожи на твой скрин
